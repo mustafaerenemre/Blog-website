@@ -10,7 +10,7 @@
 
 ### USER_TABLE ((user, admin, banned_user), id, password,)    POSTS_TABLE(title, content, is_published, id) vs.  bitmedi değişim ve geliştirmeler yapılacak (BACKEND)
 
-### Authentication   Authorization  (BACKEND)
+### Authentication - Authorization  (BACKEND)
 
 ### Caching - Reddis (BACKEND)
 
