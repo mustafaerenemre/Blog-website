@@ -1,4 +1,4 @@
-#Blog-website
+# Blog-website
 
 ### frontend mimarisi/tasarımı kesinliştirilmeli (one-page site ya da multiple-page site)  (FRONTEND)   
 
