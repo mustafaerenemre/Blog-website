@@ -35,11 +35,21 @@ async function fetchPosts() {
          const content = document.createElement('p');
          // Display a snippet of the content
          content.textContent = post.content.substring(0, 150) + (post.content.length > 150 ? '...' : '');
+         
+         const xHolder = document.createElement("a");
+         xHolder.className = "xHolder";
+         xHolder.href = "";
+         xHolder.onclick = () => deletePost(post.id);
+         const xMark = document.createElement("i");
+         xMark.className = "fa-solid fa-xmark";
 
+         xHolder.appendChild(xMark);
+         card.appendChild(xHolder);
          card.appendChild(title);
          card.appendChild(idStatus);
          card.appendChild(content);
          container.appendChild(card);
+
       });
 
    } catch (e) {
@@ -113,6 +123,32 @@ async function createNewPost() {
    // Reload the post list to show the new entry
    fetchPosts();
 }
+
+// post silme
+async function deletePost(postId) {
+   // Kullanıcıdan onay al
+   if (!confirm('Bu yazıyı silmek istediğinize emin misiniz?')) {
+      return;
+   }
+
+   try {
+      // Backend'e DELETE isteği gönder
+      const response = await fetch(`${API_URL}/${postId}`, {
+         method: 'DELETE'
+      });
+
+      if (response.ok) {
+         // Başarılıysa listeyi yenile
+         fetchPosts();
+      } else {
+         alert('Silme işlemi başarısız oldu.');
+      }
+   } catch (e) {
+      console.error("Hata:", e);
+      alert('Bir hata oluştu.');
+   }
+}
+
 
 // Initial load of posts when the page loads
 fetchPosts();

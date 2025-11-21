@@ -116,3 +116,15 @@ hr {
    border-top: 1px solid var(--border-color);
    margin: 30px 0;
 }
+
+.xHolder{
+   position: absolute;
+   top:8px;
+   right: 15px;
+   color: #007bff;
+}
+
+.xHolder:hover {
+   
+   color: #dd1919;
+}
